@@ -8,6 +8,7 @@ export const TimerWithLabel = ({
   className = "",
   id = "",
   isRest,
+  restTimer,
 }: TimerWithLabelProps) => {
   return (
     <>
@@ -19,7 +20,9 @@ export const TimerWithLabel = ({
         {
           isRest
             ?
-            ""
+            <Timer
+              timer={restTimer}
+            />
             :
             <Timer
               timer={minutesTimer}

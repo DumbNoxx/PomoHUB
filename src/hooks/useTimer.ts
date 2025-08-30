@@ -15,14 +15,14 @@ export const useTimer = (time: number): useTimerReturn => {
 
   useEffect(() => {
     setTimer(time * 60)
-  }, [time])
+  }, [time]);
 
   const startTimer = () => setIsActive(true);
   const pauseTimer = () => setIsActive(false);
   const restarTimer = () => {
+    setIsRest(false);
     setTimer(time * 60);
     setIsActive(false);
-    setIsRest(false);
   };
 
   useEffect(() => {
@@ -37,8 +37,6 @@ export const useTimer = (time: number): useTimerReturn => {
       setIsRest(true);
     }
 
-
-
     return () => clearInterval(interval);
   }, [isActive, timer, time, isRest]);
 
@@ -49,5 +47,4 @@ export const useTimer = (time: number): useTimerReturn => {
     pauseTimer,
     restarTimer,
   }
-
 }

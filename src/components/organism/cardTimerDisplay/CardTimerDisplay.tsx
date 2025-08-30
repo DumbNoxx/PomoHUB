@@ -9,6 +9,7 @@ export const CardTimerDisplay = ({
   textLabel,
   buttons = [],
   isRest,
+  restTimer
 }: CardTimerDisplayProps) => {
   return (
     <>
@@ -16,6 +17,7 @@ export const CardTimerDisplay = ({
         id={id}>
         <TimerWithLabel
           isRest={isRest}
+          restTimer={restTimer}
           minutesTimer={minutesTimer}
           textLabel={textLabel}
         />

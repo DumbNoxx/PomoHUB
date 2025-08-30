@@ -10,8 +10,18 @@ import { CardLabelDisplay } from './components/organism/cardLabelDisplay/CardLab
 import { CardTimerDisplay } from './components/organism/cardTimerDisplay/CardTimerDisplay';
 import { Layout } from './components/template/layout/Layout';
 import { useLabelSession } from './hooks/useLabelSession';
+import { useState } from 'react';
 
 export const App = () => {
+  const [rest, setRest] = useState<number>(5);
+
+  const incrementTimeRest = () => setRest(incrementTime => incrementTime + 1);
+  const decrementTimeRest = () => {
+    if (rest <= 1) return;
+    setRest(decrementTime => decrementTime - 1)
+  };
+
+
   const { labelSession, incrementTimeSession, decrementTimeSession } = useLabelSession(25);
   const { timer, startTimer, pauseTimer, restarTimer, isRest } = useTimer(labelSession);
 
@@ -29,13 +39,15 @@ export const App = () => {
           <>
             <section>
               <CardLabelDisplay
-                textLabel={5}
+                textLabel={rest}
                 isTimer={false}
                 isLinkButton={false}
                 isTimerLabel={true}
                 textTitle='Break Length'
                 nameIcon1={ArrowDown}
                 nameIcon2={ArrowUp}
+                funcButton1={decrementTimeRest}
+                funcButton2={incrementTimeRest}
 
               />
               <CardLabelDisplay
@@ -48,8 +60,6 @@ export const App = () => {
                 nameIcon2={ArrowUp}
                 funcButton1={decrementTimeSession}
                 funcButton2={incrementTimeSession}
-
-
               />
             </section>
             <section>
@@ -58,6 +68,7 @@ export const App = () => {
                 textLabel='Session'
                 isRest={isRest}
                 buttons={buttons}
+                restTimer={rest}
               />
             </section>
           </>

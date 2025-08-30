@@ -4,5 +4,4 @@ import type { ButtonProps } from "../../atom";
 
 export interface CardTimerDisplayProps extends DefaultProps, TimerWithLabelProps {
   buttons: ButtonProps[];
-  isRest?: boolean;
 }

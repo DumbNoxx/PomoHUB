@@ -1,14 +1,20 @@
+import { formatText } from "@/helpers";
 import type { LabelProps } from "@/schemas/components";
 
 export const Label = ({
   text,
-  text2,
   className = "",
   id = "",
   isTimer,
 }: LabelProps) => {
-  const minutes = String(text).padStart(2, "0");
-  const seconds = String(text2).padStart(2, "0");
+  let minutesLabel;
+  let secondsLabel;
+  if (isTimer) {
+    const timer = Number(text);
+    const { minutes, seconds } = formatText(timer);
+    minutesLabel = minutes;
+    secondsLabel = seconds;
+  }
   return (
     <p
       className={className}
@@ -16,7 +22,7 @@ export const Label = ({
       {
         isTimer
           ?
-          `${minutes}:${seconds}`
+          `${String(minutesLabel).padStart(2, "0")}:${String(secondsLabel).padStart(2, "0")}`
           :
           `${text}`
       }

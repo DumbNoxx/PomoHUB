@@ -9,25 +9,27 @@ export const ButtonsWithLabel = ({
   className = "",
   id = "",
   isTimerLabel,
-  textLabel2,
   isLinkButton,
   idLabel = "",
   classLabel = "",
+  funcButton1,
+  funcButton2,
 }: ButtonsWithLabelProps) => {
   return (
     <>
       <div className={className} id={id}>
         <Button
+          func={funcButton1}
           icon={nameIcon1}
           isLink={isLinkButton} />
         <Label
           text={textLabel}
-          text2={textLabel2}
           id={idLabel}
           className={classLabel}
           isTimer={isTimerLabel}
         />
         <Button
+          func={funcButton2}
           icon={nameIcon2}
           isLink={isLinkButton} />
       </div>

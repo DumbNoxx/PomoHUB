@@ -4,20 +4,27 @@ import type { TimerWithLabelProps } from "@/schemas/components"
 
 export const TimerWithLabel = ({
   minutesTimer,
-  secondsTimer,
   textLabel,
   className = "",
   id = "",
+  isRest,
 }: TimerWithLabelProps) => {
   return (
     <>
       <div className={className}
         id={id}>
-        <Label text={textLabel} />
-        <Timer
-          minutes={minutesTimer}
-          seconds={secondsTimer}
-        />
+        <Label
+          isTimer={false}
+          text={textLabel} />
+        {
+          isRest
+            ?
+            ""
+            :
+            <Timer
+              timer={minutesTimer}
+            />
+        }
       </div>
     </>
   )

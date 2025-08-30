@@ -1,12 +1,12 @@
+import { formatText } from "@/helpers"
 import type { TimerProps } from "@/schemas/components"
 
 export const Timer = ({
-  minutes,
-  seconds,
+  timer,
   className = "",
   id = ""
 }: TimerProps) => {
-
+  const { minutes, seconds } = formatText(timer);
   return (
     <>
       <p

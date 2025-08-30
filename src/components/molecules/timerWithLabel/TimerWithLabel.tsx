@@ -7,8 +7,6 @@ export const TimerWithLabel = ({
   textLabel,
   className = "",
   id = "",
-  isRest,
-  restTimer,
 }: TimerWithLabelProps) => {
   return (
     <>
@@ -17,17 +15,9 @@ export const TimerWithLabel = ({
         <Label
           isTimer={false}
           text={textLabel} />
-        {
-          isRest
-            ?
-            <Timer
-              timer={restTimer}
-            />
-            :
-            <Timer
-              timer={minutesTimer}
-            />
-        }
+        <Timer
+          timer={minutesTimer}
+        />
       </div>
     </>
   )

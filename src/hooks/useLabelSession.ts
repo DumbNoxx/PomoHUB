@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 interface useLabeSessionReturn {
   labelSession: number;
@@ -6,17 +6,13 @@ interface useLabeSessionReturn {
   decrementTimeSession: () => void;
 }
 
-export const useLabelSession = (time: number): useLabeSessionReturn => {
-  const [labelSession, setLabelSession] = useState<number>(0);
-  useEffect(() => {
-    setLabelSession(time)
-  }, [time]);
+export const useLabelSession = (initialTime: number): useLabeSessionReturn => {
+  const [labelSession, setLabelSession] = useState<number>(initialTime);
 
-  const incrementTimeSession = () => setLabelSession(incrementTimer => incrementTimer + 1);
+  const incrementTimeSession = () => setLabelSession(currentTime => currentTime + 1);
   const decrementTimeSession = () => {
     if (labelSession <= 1) return;
-    setLabelSession(decrementTimer => decrementTimer - 1)
-
+    setLabelSession(currentTime => currentTime - 1)
   };
 
   return {
@@ -24,5 +20,4 @@ export const useLabelSession = (time: number): useLabeSessionReturn => {
     incrementTimeSession,
     decrementTimeSession,
   }
-
 }

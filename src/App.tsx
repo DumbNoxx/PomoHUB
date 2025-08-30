@@ -10,18 +10,21 @@ import { CardLabelDisplay } from './components/organism/cardLabelDisplay/CardLab
 import { CardTimerDisplay } from './components/organism/cardTimerDisplay/CardTimerDisplay';
 import { Layout } from './components/template/layout/Layout';
 import { useLabelSession } from './hooks/useLabelSession';
-import { useRest } from './hooks/useRest';
+import { useLabelBreak } from './hooks/useLabelBreak';
 
 export const App = () => {
 
+  const { labelBreak, incrementTimeRest, decrementTimeRest } = useLabelBreak(5);
   const { labelSession, incrementTimeSession, decrementTimeSession } = useLabelSession(25);
-  const { timer, startTimer, pauseTimer, restarTimer, isRest } = useTimer(labelSession);
-  const { rest, incrementTimeRest, decrementTimeRest } = useRest(5);
+  const { timeLeft, start, pause, reset, mode } = useTimer({
+    sessionTime: labelSession,
+    breakTime: labelBreak
+  });
 
   const buttons: ButtonProps[] = [
-    { id: "test 1", icon: Play, className: "test 1", isLink: false, func: startTimer },
-    { id: "test 2", icon: Pause, className: "test 2", isLink: false, func: pauseTimer },
-    { id: "test 3", icon: Reload, className: "test 2", isLink: false, func: restarTimer },
+    { id: "test 1", icon: Play, className: "test 1", isLink: false, func: start },
+    { id: "test 2", icon: Pause, className: "test 2", isLink: false, func: pause },
+    { id: "test 3", icon: Reload, className: "test 2", isLink: false, func: reset },
   ];
 
   return (
@@ -32,7 +35,7 @@ export const App = () => {
           <>
             <section>
               <CardLabelDisplay
-                textLabel={rest}
+                textLabel={labelBreak}
                 isTimer={false}
                 isLinkButton={false}
                 isTimerLabel={true}
@@ -57,11 +60,9 @@ export const App = () => {
             </section>
             <section>
               <CardTimerDisplay
-                minutesTimer={timer / 60}
-                textLabel='Session'
-                isRest={isRest}
+                minutesTimer={timeLeft / 60}
+                textLabel={mode === "session" ? "Session" : "Break"}
                 buttons={buttons}
-                restTimer={rest}
               />
             </section>
           </>

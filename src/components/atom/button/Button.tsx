@@ -1,4 +1,4 @@
-import "./button.module.css";
+import styleButton from "./button.module.css";
 import type { ButtonProps } from "@/schemas/components";
 
 export const Button = ({
@@ -18,7 +18,7 @@ export const Button = ({
         isLink
           ?
           <a
-            className={className}
+            className={`${styleButton.link} ${styleButton.className}`}
             id={id}
             href={href}
             target={
@@ -35,7 +35,7 @@ export const Button = ({
           :
           <button
             onClick={func}
-            className={className}
+            className={`${styleButton.btn} ${className}`}
             id={id}>
             <img src={icon} />
             {text}

@@ -1,57 +1,71 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
-interface useTimerReturn {
-  timer: number;
-  isRest: boolean;
-  startTimer: () => void;
-  pauseTimer: () => void;
-  restarTimer: () => void;
+interface UseTimerProps {
+  sessionTime: number;
+  breakTime: number;
 }
 
-export const useTimer = (time: number): useTimerReturn => {
-  const [timer, setTimer] = useState<number>(0);
-  const [isActive, setIsActive] = useState<boolean>(false);
-  const [isRest, setIsRest] = useState<boolean>(false);
+interface UseTimerReturn {
+  timeLeft: number;
+  mode: 'session' | 'break';
+  isActive: boolean;
+  start: () => void;
+  pause: () => void;
+  reset: () => void;
+}
 
-  useEffect(() => {
-    setTimer(time * 60)
-  }, [time]);
+export const useTimer = ({ sessionTime, breakTime }: UseTimerProps): UseTimerReturn => {
+  const [isActive, setIsActive] = useState(false);
 
-  const startTimer = () => setIsActive(true);
-  const pauseTimer = () => setIsActive(false);
-  const restarTimer = () => {
-    setIsRest(false);
-    setTimer(time * 60);
+  const [mode, setMode] = useState<'session' | 'break'>('session');
+
+  const [timeLeft, setTimeLeft] = useState(sessionTime * 60);
+
+  const start = useCallback(() => setIsActive(true), []);
+  const pause = useCallback(() => setIsActive(false), []);
+
+  const reset = useCallback(() => {
     setIsActive(false);
-  };
+    setMode('session');
+    setTimeLeft(sessionTime * 60);
+  }, [sessionTime]);
+
 
   useEffect(() => {
-    let interval: ReturnType<typeof setInterval> | undefined;
+
+
     if (!isActive) {
-      document.title = "PomoHUB"
+      const newTime = (mode === 'session' ? sessionTime : breakTime) * 60;
+      setTimeLeft(newTime);
+    }
+  }, [sessionTime, breakTime, mode]);
+
+  useEffect(() => {
+    if (!isActive) {
       return;
-    };
-    const timerMinutesTitle = Math.floor(timer / 60);
-    const timerSecondsTitle = timer % 60;
-    if (timer > 0) {
-      document.title = `${String(timerMinutesTitle).padStart(2, "0")}:${String(timerSecondsTitle).padStart(2, "0")} - PomoHUB`;
-      interval = setInterval(() => {
-        setTimer(prevTimer => prevTimer - 1);
-      }, 1000);
-    } else {
-      setIsActive(false);
-      setIsRest(true);
     }
 
+    if (timeLeft <= 0) {
+      const nextMode = mode === 'session' ? 'break' : 'session';
+      const nextTime = (nextMode === 'session' ? sessionTime : breakTime) * 60;
+
+      setMode(nextMode);
+      setTimeLeft(nextTime);
+
+
+      return;
+    }
+
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    document.title = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} - ${mode === 'session' ? 'Session' : 'Break'}`;
+
+    const interval = setInterval(() => {
+      setTimeLeft(prev => prev - 1);
+    }, 1000);
 
     return () => clearInterval(interval);
-  }, [isActive, timer, time, isRest]);
+  }, [isActive, timeLeft, mode, sessionTime, breakTime]);
 
-  return {
-    timer,
-    isRest,
-    startTimer,
-    pauseTimer,
-    restarTimer,
-  }
-}
+  return { timeLeft, mode, isActive, start, pause, reset };
+};

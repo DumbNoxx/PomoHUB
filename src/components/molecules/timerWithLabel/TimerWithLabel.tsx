@@ -1,23 +1,23 @@
 import { Label } from "@/components/atom/label/Label"
 import { Timer } from "@/components/atom/timer/Timer"
 import type { TimerWithLabelProps } from "@/schemas/components"
+import style from "./timerWithLabel.module.css";
 
 export const TimerWithLabel = ({
   minutesTimer,
   textLabel,
-  className = "",
   id = "",
 }: TimerWithLabelProps) => {
   return (
     <>
-      <div className={className}
+      <div className={style.timerLabel}
         id={id}>
-        <Label
-          isTimer={false}
-          text={textLabel} />
         <Timer
           timer={minutesTimer}
         />
+        <Label
+          isTimer={false}
+          text={textLabel} />
       </div>
     </>
   )

@@ -8,6 +8,7 @@ export interface ButtonsWithLabelProps extends DefaultProps {
   isLinkButton: boolean;
   idLabel?: string;
   classLabel?: string;
+  classButton?: string;
   funcButton1?: () => void;
   funcButton2?: () => void;
 }

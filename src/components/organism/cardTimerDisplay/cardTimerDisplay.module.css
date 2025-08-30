@@ -1,0 +1,11 @@
+.containerButtons {
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  gap: 3em;
+
+  & button {
+    font-size: 1.3em;
+  }
+
+}

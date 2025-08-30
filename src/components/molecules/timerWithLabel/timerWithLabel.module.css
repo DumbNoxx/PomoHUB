@@ -1,0 +1,14 @@
+.timerLabel {
+  p:nth-child(1) {
+    margin: 0;
+    margin-bottom: -.3em;
+    font-size: 6em;
+    font-weight: bold;
+  }
+
+  p:nth-child(2) {
+    color: #FFA500;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+}

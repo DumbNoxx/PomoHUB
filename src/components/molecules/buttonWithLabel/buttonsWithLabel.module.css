@@ -1,0 +1,12 @@
+.containerButtonLabel {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  height: 2em;
+  align-items: center;
+  gap: 1em;
+
+  & p {
+    font-weight: bold;
+  }
+}

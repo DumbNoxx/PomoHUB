@@ -7,6 +7,7 @@ export interface CardLabelDisplayProps extends DefaultProps {
   nameIcon2: string;
   isTimer: boolean;
   isTimerLabel: boolean;
+  classLabelButton?: string;
   isLinkButton: boolean;
   funcButton1?: () => void;
   funcButton2?: () => void;

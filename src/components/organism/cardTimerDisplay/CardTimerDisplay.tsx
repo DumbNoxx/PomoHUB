@@ -1,6 +1,7 @@
 import { Button } from "@/components/atom/button/Button";
 import { TimerWithLabel } from "@/components/molecules/timerWithLabel/TimerWithLabel";
 import type { CardTimerDisplayProps } from "@/schemas/components";
+import style from "./cardTimerDisplay.module.css";
 
 export const CardTimerDisplay = ({
   className = "",
@@ -17,12 +18,13 @@ export const CardTimerDisplay = ({
           minutesTimer={minutesTimer}
           textLabel={textLabel}
         />
-        <div>
+        <div className={style.containerButtons}>
           {Array.from(buttons).map((button, index) => (
             <Button
               key={index}
               isLink={button.isLink}
               icon={button.icon}
+              text={button.text}
               func={button.func}
               id={button.id}
               className={button.className}

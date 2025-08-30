@@ -1,9 +1,6 @@
 import './App.css'
-import ArrowUp from "@/assets/arrow-up.svg";
-import ArrowDown from "@/assets/arrow-down.svg";
-import Play from "@/assets/play.svg";
-import Pause from "@/assets/pause.svg";
-import Reload from "@/assets/refresh-cw.svg";
+import Plus from "@/assets/plus.svg";
+import Minus from "@/assets/minus.svg";
 import type { ButtonProps } from './schemas/components';
 import { useTimer } from './hooks/useTimer';
 import { CardLabelDisplay } from './components/organism/cardLabelDisplay/CardLabelDisplay';
@@ -22,26 +19,26 @@ export const App = () => {
   });
 
   const buttons: ButtonProps[] = [
-    { id: "test 1", icon: Play, className: "test 1", isLink: false, func: start },
-    { id: "test 2", icon: Pause, className: "test 2", isLink: false, func: pause },
-    { id: "test 3", icon: Reload, className: "test 2", isLink: false, func: reset },
+    { id: "play", className: "test 1", isLink: false, func: start, text: "Start" },
+    { id: "pause", className: "test 2", isLink: false, func: pause, text: "Pause" },
+    { id: "reset", className: "test 2", isLink: false, func: reset, text: "Reset" },
   ];
 
   return (
     <>
       <Layout
-        headerContent={<h1>PomoHUB</h1>}
+        headerContent={<h1>Pomo<span>Hub</span></h1>}
         mainContent={
           <>
-            <section>
+            <section className="options-container">
               <CardLabelDisplay
                 textLabel={labelBreak}
                 isTimer={false}
                 isLinkButton={false}
                 isTimerLabel={true}
-                textTitle='Break Length'
-                nameIcon1={ArrowDown}
-                nameIcon2={ArrowUp}
+                textTitle='Break'
+                nameIcon1={Minus}
+                nameIcon2={Plus}
                 funcButton1={decrementTimeRest}
                 funcButton2={incrementTimeRest}
 
@@ -51,9 +48,9 @@ export const App = () => {
                 isTimer={false}
                 isLinkButton={false}
                 isTimerLabel={true}
-                textTitle='Session Length'
-                nameIcon1={ArrowDown}
-                nameIcon2={ArrowUp}
+                textTitle='Session'
+                nameIcon1={Minus}
+                nameIcon2={Plus}
                 funcButton1={decrementTimeSession}
                 funcButton2={incrementTimeSession}
               />

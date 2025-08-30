@@ -1,6 +1,27 @@
 #root {
   max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+h1 span {
+  padding: 0 .3em;
+  background-color: #FFA500;
+  color: #000000;
+  margin-left: .2em;
+}
+
+.options-container {
+  margin: 0 auto;
+  max-width: 18em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
 }

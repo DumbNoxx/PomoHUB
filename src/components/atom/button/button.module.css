@@ -1,3 +1,12 @@
 .btn {
-  background-color: red;
+  color: #000000;
+  background-color: #FFA500;
+  padding: .3em;
+  border: none;
+  border-radius: .5em;
+
+  &:hover {
+    background-color: #E69200;
+    cursor: pointer;
+  }
 }

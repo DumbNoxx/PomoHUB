@@ -27,8 +27,14 @@ export const useTimer = (time: number): useTimerReturn => {
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval> | undefined;
-    if (!isActive) return;
+    if (!isActive) {
+      document.title = "PomoHUB"
+      return;
+    };
+    const timerMinutesTitle = Math.floor(timer / 60);
+    const timerSecondsTitle = timer % 60;
     if (timer > 0) {
+      document.title = `${String(timerMinutesTitle).padStart(2, "0")}:${String(timerSecondsTitle).padStart(2, "0")} - PomoHUB`;
       interval = setInterval(() => {
         setTimer(prevTimer => prevTimer - 1);
       }, 1000);
@@ -36,6 +42,7 @@ export const useTimer = (time: number): useTimerReturn => {
       setIsActive(false);
       setIsRest(true);
     }
+
 
     return () => clearInterval(interval);
   }, [isActive, timer, time, isRest]);

@@ -10,20 +10,13 @@ import { CardLabelDisplay } from './components/organism/cardLabelDisplay/CardLab
 import { CardTimerDisplay } from './components/organism/cardTimerDisplay/CardTimerDisplay';
 import { Layout } from './components/template/layout/Layout';
 import { useLabelSession } from './hooks/useLabelSession';
-import { useState } from 'react';
+import { useRest } from './hooks/useRest';
 
 export const App = () => {
-  const [rest, setRest] = useState<number>(5);
-
-  const incrementTimeRest = () => setRest(incrementTime => incrementTime + 1);
-  const decrementTimeRest = () => {
-    if (rest <= 1) return;
-    setRest(decrementTime => decrementTime - 1)
-  };
-
 
   const { labelSession, incrementTimeSession, decrementTimeSession } = useLabelSession(25);
   const { timer, startTimer, pauseTimer, restarTimer, isRest } = useTimer(labelSession);
+  const { rest, incrementTimeRest, decrementTimeRest } = useRest(5);
 
   const buttons: ButtonProps[] = [
     { id: "test 1", icon: Play, className: "test 1", isLink: false, func: startTimer },

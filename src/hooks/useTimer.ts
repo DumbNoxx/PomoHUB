@@ -1,3 +1,4 @@
+import { audioPlayer } from "@/helpers";
 import { useEffect, useState, useCallback } from "react";
 
 interface UseTimerProps {
@@ -16,6 +17,8 @@ interface UseTimerReturn {
 
 export const useTimer = ({ sessionTime, breakTime }: UseTimerProps): UseTimerReturn => {
   const [isActive, setIsActive] = useState(false);
+
+  const { audio } = audioPlayer();
 
   const [mode, setMode] = useState<'session' | 'break'>('session');
 
@@ -64,6 +67,11 @@ export const useTimer = ({ sessionTime, breakTime }: UseTimerProps): UseTimerRet
       setTimeLeft(prev => prev - 1);
     }, 1000);
 
+
+
+    if (timeLeft == 10) {
+      audio.play()
+    }
     return () => clearInterval(interval);
   }, [isActive, timeLeft, mode, sessionTime, breakTime]);
 

@@ -64,7 +64,7 @@ export const App = () => {
             </section>
           </>
         }
-        footerContent={<p>Hola</p>}
+        footerContent={<p></p>}
       />
     </>
   )

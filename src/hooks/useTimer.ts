@@ -16,6 +16,8 @@ interface UseTimerReturn {
 }
 
 export const useTimer = ({ sessionTime, breakTime }: UseTimerProps): UseTimerReturn => {
+  // FIX: Audio pause and reset
+
   const [isActive, setIsActive] = useState(false);
 
   const { audio } = audioPlayer();
@@ -25,13 +27,18 @@ export const useTimer = ({ sessionTime, breakTime }: UseTimerProps): UseTimerRet
   const [timeLeft, setTimeLeft] = useState(sessionTime * 60);
 
   const start = useCallback(() => setIsActive(true), []);
-  const pause = useCallback(() => setIsActive(false), []);
+  const pause = useCallback(() => {
+    setIsActive(false)
+    audio.pause();
+  }, [audio]);
 
   const reset = useCallback(() => {
     setIsActive(false);
     setMode('session');
     setTimeLeft(sessionTime * 60);
-  }, [sessionTime]);
+    audio.pause();
+    audio.currentTime = 0;
+  }, [sessionTime, audio]);
 
 
   useEffect(() => {

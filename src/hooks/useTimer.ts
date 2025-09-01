@@ -69,9 +69,10 @@ export const useTimer = ({ sessionTime, breakTime }: UseTimerProps): UseTimerRet
 
 
 
-    if (timeLeft == 10) {
-      audio.play()
+    if (timeLeft === 11) {
+      audio.play();
     }
+
     return () => clearInterval(interval);
   }, [isActive, timeLeft, mode, sessionTime, breakTime]);
 

@@ -1,0 +1,14 @@
+---
+import CountLabel from "@/components/atom/label/CountLabel.astro";
+import IconButton from "@/components/atom/button/IconButton.astro";
+import type { iButtonsWithTLabel } from "@/schemas/components";
+const {
+  timer = 0
+} = Astro.props as iButtonsWithTLabel
+---
+
+<div>
+  <IconButton icon="minus" />
+  <CountLabel timer={timer} />
+  <IconButton icon="plus" />
+</div>

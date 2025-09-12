@@ -1,0 +1,22 @@
+---
+import TLabelWithLabel from "../molecules/TLabelWithLabel.astro";
+import Button from "../atom/button/Button.astro";
+import type { cardTimerDisplayProp } from "@/schemas/components";
+const {
+  timerWatch = 0,
+  label = "",
+  buttons = []
+} = Astro.props as cardTimerDisplayProp
+---
+
+<div>
+  <TLabelWithLabel
+    timerWatch={timerWatch}
+    label={label}
+  />
+  <div>
+    {Array.from(buttons).map(button => (
+      <Button>{button}</Button>
+    ))}
+  </div>
+</div>

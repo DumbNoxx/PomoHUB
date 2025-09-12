@@ -1,0 +1,16 @@
+---
+import TimerLabel from "@/components/atom/label/TimerLabel.astro";
+import Label from "@/components/atom/label/Label.astro";
+import type { tLabelWithLabel } from "@/schemas/components";
+const {
+  timerWatch = 0,
+  label = ""
+} = Astro.props as tLabelWithLabel;
+---
+
+<div>
+  <TimerLabel timerWatch={timerWatch} />
+  <Label>
+    {label} 
+  </Label>
+</div>

@@ -1,0 +1,12 @@
+---
+import Label from "./Label.astro";
+import type { timerLabelProp } from "@/schemas/components";
+const {
+  timer = 0
+  } = Astro.props as timerLabelProp;
+---
+
+
+<Label variant="counter">
+  {timer}m
+</Label>

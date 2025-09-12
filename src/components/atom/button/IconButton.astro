@@ -1,0 +1,13 @@
+---
+import Button from "./Button.astro"
+import { Icon } from 'astro-icon/components'
+import type { iconButtonProps } from "@/schemas/components";
+
+const {
+  icon
+} = Astro.props as iconButtonProps
+---
+
+<Button variant="icon">
+  <Icon name={icon} />
+</Button>

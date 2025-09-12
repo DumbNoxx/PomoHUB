@@ -1,0 +1,14 @@
+---
+import type { timerProp } from "@/schemas/components";
+import Label from "./Label.astro";
+import { formatText } from "@/common";
+
+const {
+  timerWatch = 0
+} = Astro.props as timerProp;
+const { minutes, seconds } = formatText(timerWatch);
+---
+
+<Label variant="timer">
+  {`${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`}
+</Label>

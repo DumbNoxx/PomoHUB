@@ -1,3 +1,6 @@
-export type { ButtonProps } from "./button/button.schema";
-export type { LabelProps } from "./label/label.schema";
-export type { TimerProps } from "./timer/timer.schema";
+export * from "./button/";
+export * from "./label/";
+
+
+export type { variantProp } from "./variant.schema";
+export type { timerProp } from "./timer.schema";

@@ -1,0 +1,21 @@
+---
+import IButtonsWithTLabel from "../molecules/IButtonsWithTLabel.astro" 
+import Label from "../atom/label/Label.astro";
+import type { cardLabelDisplay } from "@/schemas/components";
+const {
+  textLabel = "empty",
+  timer = 0,
+} = Astro.props as cardLabelDisplay
+---
+
+
+<div>
+  <Label>
+    {textLabel}
+  </Label>
+  <IButtonsWithTLabel 
+    timer={timer}
+  />
+</div>
+
+

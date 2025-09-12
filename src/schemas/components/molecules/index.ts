@@ -1,2 +1,2 @@
-export type { ButtonsWithLabelProps } from "./buttonWithLabel/buttonWithLabel.schema";
-export type { TimerWithLabelProps } from "./timerWithLabel/timerWithLabel.schema";
+export type { iButtonTLabelProps } from "./iButtonsWithTLabel.schema";
+export type { tLabelWithLabel } from "./tLabelWithLabel.schema";

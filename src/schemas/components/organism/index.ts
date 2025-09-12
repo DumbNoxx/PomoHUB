@@ -1,2 +1,2 @@
-export type { CardLabelDisplayProps } from "./cardLabelDisplay/cardLabelDisplay.schema";
-export type { CardTimerDisplayProps } from "./cardTimerDisplay/cardTimerDisplay.schema";
+export type { cardLabelDisplayProp } from "./cardLabelDisplay.schema";
+export type { cardTimerDisplayProp } from "./cardTimerDisplay.schema"

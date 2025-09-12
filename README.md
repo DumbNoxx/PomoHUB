@@ -23,10 +23,8 @@ Experience PomoHub live without any installation. Get in the zone now:
 
 ## Tech Stack
 
-- **React:** A JavaScript library for building user interfaces.
+- **Astro:** A web framework for building performant, component-driven websites.
 - **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
-- **Vite:** A next-generation frontend tooling that provides a faster and leaner development experience.
-- **CSS Modules:** For locally scoped CSS to avoid style conflicts.
 
 ## License
 

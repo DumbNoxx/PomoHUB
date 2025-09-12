@@ -1,17 +1,3 @@
-// Atoms
-
-export * from "./atom";
-
-// Molecules
-
+export * from "./atom/";
 export * from "./molecules";
-
-// Organism
-
-export * from "./organism";
-
-
-// Templates
-
-export * from "./template";
-
+export * from "./organism/";

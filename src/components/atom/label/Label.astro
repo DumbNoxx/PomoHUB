@@ -1,0 +1,21 @@
+---
+import type { variantProp } from "@/schemas/components";
+const {
+  variant = "text"
+  } = Astro.props as variantProp;
+
+let css = "label";
+
+switch(variant) {
+  case "timer":
+    css += " " + variant;
+    break;
+  default:
+    css += " " + variant;
+    break;
+}
+---
+
+<p>
+  <slot />
+</p>

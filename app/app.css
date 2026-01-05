@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --color-orangePH: #FFA500;
+  --color-orangePHover: #E69200;
+}
+
+html,
+body {
+  @apply bg-white dark:bg-black;
+  @apply text-white;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: light;
+  }
+}
+
+@layer components {
+  .svg svg {
+    width: 1em;
+    height: 1em;
+    font-weight: bold;
+  }
+  .btn {
+    @apply bg-orangePH text-black p-1 hover:bg-orangePHover hover:cursor-pointer;
+  }
+  .btn--timer {
+    @apply transition-colors duration-200 bg-orangePH font-medium rounded-xl text-black py-1 px-2 hover:bg-orangePHover hover:cursor-pointer;
+  }
+  .btn--icon {
+    @apply transition-colors duration-200 bg-orangePH rounded-sm text-black p-1.5 hover:bg-orangePHover hover:cursor-pointer;
+  }
+  .navLink {
+
+  }
+  .navLink--icon{
+
+  }
+  .navLink--navLogin {
+    @apply transition-colors duration-200 bg-orangePH px-2 text-black hover:bg-orangePHover cursor-pointer;
+  }
+}

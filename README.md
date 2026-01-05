@@ -1,87 +1,33 @@
-# Welcome to React Router!
+# PomoHub
 
-A modern, production-ready template for building full-stack React applications using React Router.
+*Focus. Work. Achieve. The timer that gets you in the zone.*
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## About The Project
 
-## Features
+PomoHub is a modern and stylish Pomodoro timer designed for students, developers, and professionals who want to maximize their productivity. Inspired by the clean aesthetics of popular entertainment sites, PomoHub provides a familiar, yet powerful interface to help you stay focused and manage your work sessions effectively.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+Our philosophy is simple: productivity tools should be as engaging and intuitive as the platforms you use for leisure. PomoHub brings that level of user experience to your study and work routines.
 
-## Getting Started
+## Core Features
 
-### Installation
+- **Customizable Timers:** Easily set and adjust lengths for your Pomodoro, Short Break, and Long Break sessions.
+- **Clean & Intuitive UI:** A minimalist interface that keeps you focused on what matters: your work.
+- **Audio Alerts:** Get notified when a session ends, so you can seamlessly transition between work and break periods.
+- **Responsive Design:** Works beautifully across all your devices, from desktop to mobile.
 
-Install the dependencies:
+## Live Demo
 
-```bash
-npm install
-```
+Experience PomoHub live without any installation. Get in the zone now:
 
-### Development
+**[https://pomo-hub-chi.vercel.app](https://pomo-hub-chi.vercel.app)**
 
-Start the development server with HMR:
+## Tech Stack
 
-```bash
-npm run dev
-```
+- **React:** A JavaScript library for building user interfaces.
+- **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
+- **Vite:** A next-generation frontend tooling that provides a faster and leaner development experience.
+- **CSS Modules:** For locally scoped CSS to avoid style conflicts.
 
-Your application will be available at `http://localhost:5173`.
+## License
 
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+Distributed under the MIT License. See `LICENSE` for more information.

@@ -1,4 +1,7 @@
 onlyBuiltDependencies:
+<<<<<<< HEAD
   - '@parcel/watcher'
   - '@swc/core'
+=======
+>>>>>>> origin/migrate-react-router
   - esbuild

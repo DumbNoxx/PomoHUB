@@ -1,11 +1,4 @@
 {
-<<<<<<< HEAD
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
-=======
   "include": [
     "**/*",
     "**/.server/**/*",
@@ -30,5 +23,4 @@
     "skipLibCheck": true,
     "strict": true
   }
->>>>>>> origin/migrate-react-router
 }
